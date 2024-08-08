@@ -1,13 +1,11 @@
-package co.edu.ue.practice3.services;
+package co.edu.ue.practice5.repositories;
 
-import co.edu.ue.practice3.model.Course;
+import co.edu.ue.practice5.model.Course;
 
 import java.util.List;
 
-public interface ICourseService {
-    List<Course> getCourseData();
-    List<Course> getCourseDataIva19();
-    List<Course> getCourseDataIva5();
+public interface ICourseData {
+    List<Course> getDataList();
     Course getCourseName(String name);
     Course getCourseId(long id);
     List<Course> postCourse(Course course);

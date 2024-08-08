@@ -1,27 +1,37 @@
-package co.edu.ue.practice3.services;
+package co.edu.ue.practice5.services;
 
-import co.edu.ue.practice3.model.Course;
-import co.edu.ue.practice3.repositories.CourseData;
+import co.edu.ue.practice5.model.Course;
+import co.edu.ue.practice5.repositories.ICourseData;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class CourseService implements co.edu.ue.practice3.services.ICourseService {
+public class CourseService implements ICourseService {
 
     /* @Autowired // inyeccion por atributo
     CourseData data; */
 
-    private CourseData data; // inyeccion por contructor/metodo
+    @Autowired
+    ICourseData data;
 
-    final double IVA_19 = 0.19;
-    final double IVA_5 = 0.05;
+    // private CourseData data; // inyeccion por contructor/metodo
 
-    public CourseService(CourseData data) {
+    @Value("${iva1}") // traer informacion de un archivo de configuracion, mejor hacerlo asi
+    double iva1;
+
+    @Value("${iva2}") // traer informacion de un archivo de configuracion, mejor hacerlo asi
+    double iva2;
+
+    // final double IVA_19 = 0.19;
+    // final double IVA_5 = 0.05;
+
+    /* public CourseService(CourseData data) {
         this.data = data;
-    }
+    } */
 
     @Override
     public List<Course> getCourseData() {
@@ -32,7 +42,7 @@ public class CourseService implements co.edu.ue.practice3.services.ICourseServic
     public List<Course> getCourseDataIva19() {
         return data.getDataList().stream().map(
             c -> {
-                long value = (long) ((c.getPrice() * IVA_19) + c.getPrice());
+                long value = (long) ((c.getPrice() * iva1) + c.getPrice());
                 Course course = new Course(c.getId(), c.getName(), c.getDescription(), value);
                 return course;
             }
@@ -43,7 +53,7 @@ public class CourseService implements co.edu.ue.practice3.services.ICourseServic
     public List<Course> getCourseDataIva5() {
         return data.getDataList().stream().map(
                 c -> {
-                    long value = (long) ((c.getPrice() * IVA_5) + c.getPrice());
+                    long value = (long) ((c.getPrice() * iva2) + c.getPrice());
                     Course course = new Course(c.getId(), c.getName(), c.getDescription(), value);
                     return course;
                 }

@@ -1,4 +1,4 @@
-package co.edu.ue.practice3.model;
+package co.edu.ue.practice5.model;
 
 public class Course {
     private long id;

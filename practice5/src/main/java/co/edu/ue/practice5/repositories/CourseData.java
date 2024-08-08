@@ -1,7 +1,6 @@
-package co.edu.ue.practice3.repositories;
+package co.edu.ue.practice5.repositories;
 
-import co.edu.ue.practice3.model.Course;
-import org.springframework.beans.factory.annotation.Autowired;
+import co.edu.ue.practice5.model.Course;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

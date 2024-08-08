@@ -1,7 +1,7 @@
-package co.edu.ue.practice3.controller;
+package co.edu.ue.practice5.controller;
 
-import co.edu.ue.practice3.model.Course;
-import co.edu.ue.practice3.services.CourseService;
+import co.edu.ue.practice5.model.Course;
+import co.edu.ue.practice5.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

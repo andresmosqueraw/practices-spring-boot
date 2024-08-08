@@ -1,10 +1,10 @@
-package co.edu.ue.practice3;
+package co.edu.ue.practice5;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Practice3ApplicationTests {
+class Practice5ApplicationTests {
 
 	@Test
 	void contextLoads() {

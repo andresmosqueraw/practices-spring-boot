@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Java",
+    "description": "Java Course",
+    "price": 1000
+  },
+  {
+    "id": 2,
+    "name": "Spring",
+    "description": "Spring Course",
+    "price": 1500
+  },
+  {
+    "id": 3,
+    "name": "Angular",
+    "description": "Angular Course",
+    "price": 2000
+  },
+  {
+    "id": 4,
+    "name": "React",
+    "description": "React Course",
+    "price": 2500
+  },
+  {
+    "id": 5,
+    "name": "Python",
+    "description": "Python Course",
+    "price": 3000
+  }
+]
