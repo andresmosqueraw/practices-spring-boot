@@ -1,5 +1,6 @@
 package services;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,7 +24,7 @@ public class MunicipioService implements IMunicipioService {
     @Autowired
     RestTemplate restTemplate;
 
-    @Override
+    /* @Override
     public List<Municipio> listMunicipio() {
         String response = restTemplate.getForObject(URL, String.class);
         Municipio municipio;
@@ -45,9 +47,23 @@ public class MunicipioService implements IMunicipioService {
         }
 
         return municipios;
+    } */
+
+    //
+    @Override
+    public List<Municipio> listMunicipio() {
+        try {
+            String response = restTemplate.getForObject(URL, String.class);
+            ObjectMapper mapper = new ObjectMapper();
+
+            // Convierte directamente el response en una lista de objetos Municipio
+            return mapper.readValue(response, new TypeReference<List<Municipio>>() {});
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Collections.emptyList();
+        }
     }
 
-    // Propuesta listMunicipio
 
 
     @Override
